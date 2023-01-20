@@ -5,11 +5,11 @@ metadata:
   namespace: processing
 spec:
   sparkConf:
-    spark.driver.extraJavaOptions: "-Divy.cache.dir=/tmp -Divy.home=/tmp"
-    spark.kubernetes.allocation.batch.size: "10"
+    extraJavaOptions: "-Dcom.amazonaws.services.s3.enableV4=true,-Divy.cache.dir=/tmp,-Divy.home=/tmp"
+    spark.executor.extraJavaOptions: "-Dcom.amazonaws.services.s3.enableV4=true"
   hadoopConf:
-    fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
-  timeToLiveSeconds: 180
+    fs.s3a.impl: "org.apache.hadoop.fs.s3a.S3AFileSystem"
+    fs.s3a.fast.upload: "true"
   type: Python
   pythonVersion: "3"
   mode: cluster
