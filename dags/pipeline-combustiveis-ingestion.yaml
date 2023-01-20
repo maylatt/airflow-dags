@@ -12,10 +12,10 @@ spec:
       runAsUser: 0
     resources:
       requests:
-        memory: "3Gi"
+        memory: "2Gi"
         cpu: "500m"
       limits:
-        memory: "4Gi"
+        memory: "2Gi"
         cpu: "1000m"
     command: ["bash", "-c", "python3 -u /src/app/ingestion_job.py"]
     envSecretKeyRefs:
