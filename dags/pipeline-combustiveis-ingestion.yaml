@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "combustiveis-ingestion"
+spec:
+  containers:
+  - name: python-container
+    image: maylatt/btc-edc-m3-spark:3.1.1
+    imagePullPolicy: Always
+    securityContext:
+      allowPrivilegeEscalation: false
+      runAsUser: 0
+    resources:
+      requests:
+        memory: "3Gi"
+        cpu: "500m"
+      limits:
+        memory: "4Gi"
+        cpu: "1000m"
+    command: ["bash", "-c", "python3 -u /src/app/ingestion_job.py"]
+    envSecretKeyRefs:
+      AWS_ACCESS_KEY_ID:
+        name: aws-secret
+        key: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY:
+        name: aws-secret
+        key: AWS_SECRET_ACCESS_KEY
+      AWS_DEFAULT_REGION:
+        name: aws-secret
+        key: AWS_DEFAULT_REGION
