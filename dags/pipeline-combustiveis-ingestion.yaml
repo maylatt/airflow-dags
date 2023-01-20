@@ -20,11 +20,11 @@ spec:
     command: ["bash", "-c", "python3 -u /src/app/ingestion_job.py"]
     envSecretKeyRefs:
       AWS_ACCESS_KEY_ID:
-        name: aws-credentials
+        name: aws-secret
         key: AWS_ACCESS_KEY_ID
       AWS_SECRET_ACCESS_KEY:
-        name: aws-credentials
+        name: aws-secret
         key: AWS_SECRET_ACCESS_KEY
       AWS_DEFAULT_REGION:
-        name: aws-credentials
+        name: aws-secret
         key: AWS_DEFAULT_REGION
