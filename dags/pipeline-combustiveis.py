@@ -19,7 +19,7 @@ DAGS_FOLDER_PATH = path.dirname(__file__)
 with DAG(
     dag_id='pipeline_combustiveis',
     schedule_interval=None,
-    start_date=datetime(2022, 10, 4),
+    start_date=datetime(2023, 1, 20),
     catchup=False,
     max_active_runs=1,
     tags=['combustiveis', "kubernetes-pod-operator", 'spark-operator', 'k8s'],
